@@ -1,15 +1,13 @@
 import sequelize from './App/database.js';
-// import Emprunts from './App/models/Emprunts.js';
 import Livres from './App/models/Livres/Livres.js';
 import Utilisateur from './App/models/Utilisateur/Utilisateur.js';
+import Emprunts from './App/models/Emprunts/Emprunts.js';
 
 
 
 await sequelize.drop();
 await sequelize.sync();
 try {
-
-
     await Utilisateur.create({
         nom:"CRUCHOT",
         prenom:"Ludovic",
@@ -23,7 +21,9 @@ try {
         annee_publication:'2018',
         genre:'Policier',
     });
-
+    await Emprunts.create({
+    });
+    
 } catch (error) {
     console.error('error');
 }
